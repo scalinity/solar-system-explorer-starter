@@ -1,49 +1,93 @@
-# Solar System Explorer Starter
+# Solar System Explorer
 
-This repository contains a minimal Three.js Solar System Explorer scaffold. It sets up a Three.js scene with orbit controls, a sun, and a couple of planets that orbit the sun.
+An interactive 3D visualization of our solar system built with Three.js. Features realistic planet orbits, stunning visual effects, and smooth controls for exploring the cosmos.
 
 ## Features
 
-- Basic scene setup with camera, renderer, and lighting
-- OrbitControls for interactive exploration
-- Simple sun and two orbiting planets (Earth and Mars) with basic orbital motion
+- **All 8 Planets** - Mercury through Neptune with accurate relative sizes, colors, and axial tilts
+- **Glowing Sun** - Multi-layered sun with corona effect and animated solar flares
+- **Saturn's Rings** - Beautiful ring system with Cassini Division gap
+- **Uranus Rings** - Subtle cyan-tinted rings on Uranus
+- **Earth's Moon** - Orbiting moon around Earth
+- **15,000 Star Background** - Immersive starfield with color variations (white, blue, yellow tints)
+- **Bloom Post-Processing** - Beautiful glow effects using UnrealBloomPass
+- **Orbit Paths** - Subtle orbital path visualization (toggleable)
+- **Planet Labels** - Floating labels above each planet (toggleable)
+- **Interactive Controls**:
+  - Drag to rotate view
+  - Scroll to zoom
+  - Click any planet to smoothly focus camera on it
+- **UI Controls**:
+  - Toggle orbit lines
+  - Toggle planet labels
+  - Pause/Play animation
+  - Reset view button
+  - Speed control slider (0x - 3x)
 
 ## Getting Started
 
-### Prerequisites
+### Quick Start (Recommended)
 
-You need a local web server to serve the `index.html` file. You can use [http-server](https://www.npmjs.com/package/http-server) or any static server of your choice.
+Simply open `index.html` directly in a modern browser. The app uses ES modules via import maps, which most browsers support natively.
 
-### Installation
+### Using a Local Server
 
-1. Clone the repository:
-
-```bash
-git clone https://github.com/scalinity/solar-system-explorer-starter.git
-cd solar-system-explorer-starter
-```
-
-2. Install `http-server` globally if you don't have it:
+For the best experience, serve the file with a local web server:
 
 ```bash
-npm install -g http-server
+# Using Python
+python -m http.server 8000
+
+# Using Node.js http-server
+npx http-server .
+
+# Using PHP
+php -S localhost:8000
 ```
 
-### Running the app
+Then open `http://localhost:8000` in your browser.
 
-Start the local server in the project directory:
+## Controls
 
-```bash
-http-server .
-```
+| Action          | Control                   |
+| --------------- | ------------------------- |
+| Rotate view     | Click and drag            |
+| Zoom            | Scroll wheel              |
+| Pan             | Right-click drag          |
+| Focus on planet | Click on planet           |
+| Toggle orbits   | Click "Orbits" button     |
+| Toggle labels   | Click "Labels" button     |
+| Pause/Resume    | Click "Pause" button      |
+| Reset camera    | Click "Reset View" button |
+| Adjust speed    | Use speed slider          |
 
-Then open your browser to the address shown (typically http://localhost:8080) and you should see the solar system visualization.
+## Technical Details
 
-Alternatively, you can open `index.html` directly, but some browsers restrict module imports for local files.
+- Built with Three.js r160
+- Uses EffectComposer for post-processing
+- UnrealBloomPass for glow effects
+- OrbitControls for camera interaction
+- Procedurally generated planet textures
+- Responsive design with window resize handling
 
-## Customization
+## Planet Data
 
-The `index.html` file includes comments to help you extend the scene with additional planets, textures, or more complex orbital mechanics.
+Each planet is configured with:
+
+- Accurate relative size
+- Realistic orbital distance (scaled for visibility)
+- Axial tilt matching real values
+- Orbital speed based on actual ratios
+- Unique color and emissive properties
+
+## Browser Support
+
+Works best in modern browsers with ES module support:
+
+- Chrome 89+
+- Firefox 89+
+- Safari 15+
+- Edge 89+
 
 ## License
 
